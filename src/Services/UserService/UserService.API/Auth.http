@@ -1,0 +1,37 @@
+@baseUrl = http://localhost:5001
+@email = alex.morgan@example.com
+@password = ExamplePassword123
+@accessToken = replace-with-token-from-login-response
+@userId = replace-with-user-id-from-login-response
+
+### Register a new account
+POST {{baseUrl}}/api/users/register
+Content-Type: application/json
+
+{
+  "fullName": "Alex Morgan",
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+### Sign in
+POST {{baseUrl}}/api/users/login
+Content-Type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "{{password}}"
+}
+
+### Invalid credentials return a generic authentication error
+POST {{baseUrl}}/api/users/login
+Content-Type: application/json
+
+{
+  "email": "{{email}}",
+  "password": "IncorrectPassword123"
+}
+
+### Get the authenticated user's profile
+GET {{baseUrl}}/api/users/{{userId}}
+Authorization: Bearer {{accessToken}}

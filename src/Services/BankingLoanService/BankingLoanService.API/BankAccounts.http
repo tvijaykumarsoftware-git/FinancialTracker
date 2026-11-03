@@ -1,0 +1,254 @@
+@baseUrl = http://localhost:5004
+@userId = 11111111-1111-1111-1111-111111111111
+@bankAccountId = 22222222-2222-2222-2222-222222222222
+@bankLoanId = 33333333-3333-3333-3333-333333333333
+@cardId = 44444444-4444-4444-4444-444444444444
+@transactionId = 55555555-5555-5555-5555-555555555555
+@thirdPartyLoanId = 66666666-6666-6666-6666-666666666666
+@informalDebtId = 77777777-7777-7777-7777-777777777777
+@incomeId = 88888888-8888-8888-8888-888888888888
+@medicalBillId = 99999999-9999-9999-9999-999999999999
+
+### List the user's bank accounts
+GET {{baseUrl}}/api/banking/bankaccounts/user/{{userId}}
+
+### Add a bank account
+POST {{baseUrl}}/api/banking/bankaccounts/user/{{userId}}
+Content-Type: application/json
+
+{
+  "bankName": "Example Bank",
+  "accountType": "Savings Account",
+  "lastFour": "2468",
+  "balance": 123.45,
+  "ifsc": "EXAM0001234"
+}
+
+### Get a bank account
+GET {{baseUrl}}/api/banking/bankaccounts/{{bankAccountId}}/user/{{userId}}
+
+### Update a bank account
+PUT {{baseUrl}}/api/banking/bankaccounts/{{bankAccountId}}/user/{{userId}}
+Content-Type: application/json
+
+{
+  "bankName": "Example Bank",
+  "accountType": "Savings Account",
+  "lastFour": "2468",
+  "balance": 500.00,
+  "ifsc": "EXAM0001234"
+}
+
+### Delete a bank account
+DELETE {{baseUrl}}/api/banking/bankaccounts/{{bankAccountId}}/user/{{userId}}
+
+### List the user's bank loans
+GET {{baseUrl}}/api/banking/bankloans/user/{{userId}}
+
+### Add a bank loan
+POST {{baseUrl}}/api/banking/bankloans/user/{{userId}}
+Content-Type: application/json
+
+{
+  "lender": "Example Home Finance",
+  "type": "Home Loan",
+  "interestRate": 8.4,
+  "monthlyEmi": 1450,
+  "principalRemaining": 185000,
+  "yearsRemaining": 18
+}
+
+### Get a bank loan
+GET {{baseUrl}}/api/banking/bankloans/{{bankLoanId}}/user/{{userId}}
+
+### Update a bank loan
+PUT {{baseUrl}}/api/banking/bankloans/{{bankLoanId}}/user/{{userId}}
+Content-Type: application/json
+
+{
+  "lender": "Example Home Finance",
+  "type": "Home Loan",
+  "interestRate": 8.4,
+  "monthlyEmi": 1450,
+  "principalRemaining": 180000,
+  "yearsRemaining": 17
+}
+
+### Delete a bank loan
+DELETE {{baseUrl}}/api/banking/bankloans/{{bankLoanId}}/user/{{userId}}
+
+### List the user's credit card statements
+GET {{baseUrl}}/api/banking/CreditCardStatements/user/{{userId}}
+
+### Add a credit card statement
+POST {{baseUrl}}/api/banking/CreditCardStatements/user/{{userId}}
+Content-Type: application/json
+
+{
+  "issuerName": "Example Rewards Card",
+  "statementBalance": 1250.00,
+  "minimumDue": 125.00,
+  "dueDate": "2026-11-15",
+  "creditLimit": 8000.00
+}
+
+### Get a credit card statement
+GET {{baseUrl}}/api/banking/CreditCardStatements/{{cardId}}/user/{{userId}}
+
+### Update a credit card statement
+PUT {{baseUrl}}/api/banking/CreditCardStatements/{{cardId}}/user/{{userId}}
+Content-Type: application/json
+
+{
+  "issuerName": "Example Rewards Card",
+  "statementBalance": 1250.00,
+  "minimumDue": 125.00,
+  "dueDate": "2026-11-15",
+  "creditLimit": 8000.00
+}
+
+### Delete a credit card statement
+DELETE {{baseUrl}}/api/banking/CreditCardStatements/{{cardId}}/user/{{userId}}
+
+### List the user's debit transactions
+GET {{baseUrl}}/api/banking/DebitTransactions/user/{{userId}}
+
+### Record a debit transaction
+POST {{baseUrl}}/api/banking/DebitTransactions/user/{{userId}}
+Content-Type: application/json
+
+{
+  "accountId": "{{bankAccountId}}",
+  "transactionDate": "2026-10-28",
+  "merchantName": "Grocery Market",
+  "amount": 86.45,
+  "category": "Groceries"
+}
+
+### Get a debit transaction
+GET {{baseUrl}}/api/banking/DebitTransactions/{{transactionId}}/user/{{userId}}
+
+### Update a debit transaction
+PUT {{baseUrl}}/api/banking/DebitTransactions/{{transactionId}}/user/{{userId}}
+Content-Type: application/json
+
+{
+  "accountId": "{{bankAccountId}}",
+  "transactionDate": "2026-10-28",
+  "merchantName": "Grocery Market",
+  "amount": 86.45,
+  "category": "Groceries"
+}
+
+### Delete a debit transaction
+DELETE {{baseUrl}}/api/banking/DebitTransactions/{{transactionId}}/user/{{userId}}
+
+### List the user's fintech and PayLater loans
+GET {{baseUrl}}/api/banking/ThirdPartyLoans/user/{{userId}}
+
+### Add a PayLater loan
+POST {{baseUrl}}/api/banking/ThirdPartyLoans/user/{{userId}}
+Content-Type: application/json
+
+{
+  "appName": "Example PayLater",
+  "type": "PayLater",
+  "outstandingBalance": 210.00,
+  "nextEmi": 70.00,
+  "dueDate": "2026-11-03"
+}
+
+### Get a fintech loan
+GET {{baseUrl}}/api/banking/ThirdPartyLoans/{{thirdPartyLoanId}}/user/{{userId}}
+
+### Update a fintech or PayLater loan
+PUT {{baseUrl}}/api/banking/ThirdPartyLoans/{{thirdPartyLoanId}}/user/{{userId}}
+Content-Type: application/json
+
+{
+  "appName": "Example PayLater",
+  "type": "PayLater",
+  "outstandingBalance": 180.00,
+  "nextEmi": 60.00,
+  "dueDate": "2026-11-10"
+}
+
+### Delete a fintech or PayLater loan
+DELETE {{baseUrl}}/api/banking/ThirdPartyLoans/{{thirdPartyLoanId}}/user/{{userId}}
+
+### List the user's informal debts
+GET {{baseUrl}}/api/banking/InformalDebts/user/{{userId}}
+
+### Record an informal debt
+POST {{baseUrl}}/api/banking/InformalDebts/user/{{userId}}
+Content-Type: application/json
+
+{
+  "lenderName": "Example Family Lender",
+  "notes": "Emergency car repair",
+  "originalAmount": 2000.00,
+  "targetRepaymentDate": "2026-12-31"
+}
+
+### Get an informal debt
+GET {{baseUrl}}/api/banking/InformalDebts/{{informalDebtId}}/user/{{userId}}
+
+### Record a partial or full payback
+POST {{baseUrl}}/api/banking/InformalDebts/{{informalDebtId}}/user/{{userId}}/paybacks
+Content-Type: application/json
+
+{
+  "amount": 250.00
+}
+
+### List the user's other income sources
+GET {{baseUrl}}/api/banking/OtherIncome/user/{{userId}}
+
+### Add an other income source
+POST {{baseUrl}}/api/banking/OtherIncome/user/{{userId}}
+Content-Type: application/json
+
+{
+  "sourceName": "Freelance Design",
+  "amount": 1200.00,
+  "frequency": "Monthly",
+  "category": "Side Hustle"
+}
+
+### Get an income source
+GET {{baseUrl}}/api/banking/OtherIncome/{{incomeId}}/user/{{userId}}
+
+### List the user's medical bills
+GET {{baseUrl}}/api/banking/MedicalExpenses/user/{{userId}}
+
+### Add a medical bill
+POST {{baseUrl}}/api/banking/MedicalExpenses/user/{{userId}}
+Content-Type: application/json
+
+{
+  "serviceName": "Example Medical Center",
+  "patientDetail": "Consultation and prescription",
+  "billDate": "2026-10-28",
+  "insuranceCovered": 150.00,
+  "outOfPocketDue": 75.00,
+  "status": "Pending"
+}
+
+### Get a medical bill
+GET {{baseUrl}}/api/banking/MedicalExpenses/{{medicalBillId}}/user/{{userId}}
+
+### Update a medical bill
+PUT {{baseUrl}}/api/banking/MedicalExpenses/{{medicalBillId}}/user/{{userId}}
+Content-Type: application/json
+
+{
+  "serviceName": "Example Medical Center",
+  "patientDetail": "Consultation and prescription",
+  "billDate": "2026-10-28",
+  "insuranceCovered": 150.00,
+  "outOfPocketDue": 75.00,
+  "status": "Paid"
+}
+
+### Delete a medical bill
+DELETE {{baseUrl}}/api/banking/MedicalExpenses/{{medicalBillId}}/user/{{userId}}

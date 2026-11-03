@@ -1,0 +1,35 @@
+{
+  "name": "angular-dashboard",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node scripts/start-dev.js",
+    "serve:gateway": "dotnet run --project ../../Gateways/ApiGateway/ApiGateway.csproj",
+    "serve:users": "dotnet run --project ../../Services/UserService/UserService.API/UserService.API.csproj",
+    "serve:household": "dotnet run --project ../../Services/HouseholdService/HouseholdService.API/HouseholdService.API.csproj",
+    "serve:healthcare": "dotnet run --project ../../Services/HealthcareService/HealthcareService.API/HealthcareService.API.csproj",
+    "serve:banking": "dotnet run --project ../../Services/BankingLoanService/BankingLoanService.API/BankingLoanService.API.csproj",
+    "serve:credit-score": "dotnet run --project ../../Services/CreditScoreService/CreditScoreService.API/CreditScoreService.API.csproj",
+    "serve:angular": "wait-on tcp:localhost:5000 tcp:localhost:5001 tcp:localhost:5002 tcp:localhost:5003 tcp:localhost:5004 tcp:localhost:5005 && ng serve",
+    "start:frontend": "ng serve",
+    "build": "ng build"
+  },
+  "dependencies": {
+    "@angular/common": "22.2.3",
+    "@angular/compiler": "22.2.3",
+    "@angular/core": "22.2.3",
+    "@angular/forms": "22.2.3",
+    "@angular/platform-browser": "22.2.3",
+    "rxjs": "^7.8.2",
+    "tslib": "^2.8.1",
+    "zone.js": "~0.16.3"
+  },
+  "devDependencies": {
+    "@angular/build": "22.2.4",
+    "@angular/cli": "22.2.4",
+    "@angular/compiler-cli": "22.2.3",
+    "concurrently": "^10.0.6",
+    "typescript": "~6.0.3",
+    "wait-on": "^9.5.1"
+  }
+}

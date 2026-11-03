@@ -1,0 +1,1690 @@
+html,
+body {
+  width: 100%;
+  min-width: 320px;
+  min-height: 100%;
+  margin: 0;
+  background: #070d1c;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.medical-expense-actions {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 7px;
+}
+
+.medical-action-button {
+  display: inline-grid;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #34435d;
+  border-radius: 6px;
+  background: #172338;
+  color: #a9c8ff;
+  cursor: pointer;
+  transition: background .15s ease, color .15s ease, border-color .15s ease;
+}
+
+.medical-action-button:hover:not(:disabled) {
+  border-color: #4a7fff;
+  background: #203456;
+  color: #fff;
+}
+
+.medical-action-button:focus-visible {
+  outline: 2px solid #75a8ff;
+  outline-offset: 2px;
+}
+
+.medical-action-button svg {
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.medical-action-delete {
+  color: #ff8293;
+}
+
+.medical-action-delete:hover:not(:disabled) {
+  border-color: #a63e55;
+  background: #3a202e;
+  color: #ff9aab;
+}
+
+.medical-action-button:disabled {
+  cursor: not-allowed;
+  opacity: .45;
+}
+
+.medical-expense-operation-feedback {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border: 1px solid;
+  border-radius: 7px;
+  font-size: 12px;
+}
+
+.medical-expense-operation-feedback.success {
+  border-color: #12614e;
+  background: #102b2d;
+  color: #35dfa9;
+}
+
+.medical-expense-operation-feedback.failure {
+  border-color: #78404c;
+  background: #321f2b;
+  color: #ff9aab;
+}
+
+.auth-page {
+  position: relative;
+  display: grid;
+  min-height: 100vh;
+  overflow: hidden;
+  place-items: center;
+  padding: 48px;
+  background:
+    radial-gradient(ellipse at 18% 82%, rgb(38 80 157 / 22%), transparent 42%),
+    radial-gradient(ellipse at 75% 15%, rgb(72 62 174 / 16%), transparent 36%),
+    #070d1c;
+  color: #e8edf8;
+}
+
+.auth-backdrop-glow {
+  position: absolute;
+  right: -180px;
+  bottom: -290px;
+  width: 580px;
+  height: 580px;
+  border: 1px solid rgb(80 117 208 / 12%);
+  border-radius: 50%;
+  box-shadow: 0 0 0 48px rgb(80 117 208 / 3%), 0 0 0 100px rgb(80 117 208 / 2%);
+  pointer-events: none;
+}
+
+.auth-layout {
+  position: relative;
+  display: grid;
+  width: min(1050px, 100%);
+  grid-template-columns: minmax(0, 1fr) minmax(350px, 430px);
+  align-items: center;
+  gap: clamp(40px, 8vw, 110px);
+}
+
+.auth-intro {
+  display: flex;
+  min-height: 560px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 14px 0;
+}
+
+.auth-brand {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  gap: 12px;
+  color: #f0f3fb;
+  text-decoration: none;
+}
+
+.auth-brand > span:last-child {
+  display: grid;
+  gap: 4px;
+}
+
+.auth-brand strong {
+  font-size: 17px;
+  font-weight: 760;
+  letter-spacing: -.3px;
+}
+
+.auth-brand small {
+  color: #9aa8be;
+  font-size: 11px;
+}
+
+.auth-brand .brand-mark {
+  width: 40px;
+  height: 40px;
+}
+
+.auth-pitch {
+  max-width: 500px;
+  padding: 40px 0;
+}
+
+.auth-eyebrow {
+  color: #6ea5ff;
+  font-size: 10px;
+  font-weight: 750;
+  letter-spacing: 1.6px;
+}
+
+.auth-pitch h1 {
+  max-width: 480px;
+  margin: 18px 0 13px;
+  color: #f3f6fd;
+  font-size: clamp(34px, 4vw, 49px);
+  font-weight: 780;
+  letter-spacing: -1.8px;
+  line-height: 1.12;
+}
+
+.auth-pitch > p {
+  max-width: 430px;
+  margin: 0;
+  color: #9baac0;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.auth-feature-list {
+  display: grid;
+  gap: 22px;
+  margin-top: 40px;
+}
+
+.auth-feature-list > div {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.auth-feature-list > div > span:first-child {
+  display: grid;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  place-items: center;
+  border: 1px solid #146552;
+  border-radius: 50%;
+  background: #102b2d;
+  color: #20d6a0;
+  font-size: 12px;
+  font-weight: 750;
+}
+
+.auth-feature-list > div > span:last-child {
+  display: grid;
+  gap: 4px;
+}
+
+.auth-feature-list strong {
+  color: #e8edf8;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.auth-feature-list small {
+  color: #8e9db4;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.auth-footer-note {
+  margin: 0;
+  color: #7888a1;
+  font-size: 10px;
+}
+
+.auth-card {
+  width: 100%;
+  padding: 34px;
+  border: 1px solid #26334b;
+  border-radius: 16px;
+  background: linear-gradient(155deg, rgb(18 28 47 / 98%), rgb(13 21 37 / 98%));
+  box-shadow: 0 26px 90px rgb(0 0 0 / 35%);
+}
+
+.auth-card-heading {
+  display: grid;
+  justify-items: start;
+  gap: 8px;
+  margin-bottom: 27px;
+}
+
+.auth-card-icon {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 9px;
+  place-items: center;
+  border: 1px solid #30477b;
+  border-radius: 11px;
+  background: #142344;
+  color: #75a8ff;
+  font-size: 19px;
+}
+
+.auth-card-heading > p {
+  margin: 0;
+  color: #6ea5ff;
+  font-size: 9px;
+  font-weight: 750;
+  letter-spacing: 1.3px;
+}
+
+.auth-card-heading h2 {
+  margin: 0;
+  color: #f0f3fb;
+  font-size: 23px;
+  font-weight: 750;
+  letter-spacing: -.5px;
+}
+
+.auth-card-heading > span:last-child {
+  color: #9aa8be;
+  font-size: 11px;
+}
+
+.auth-form {
+  display: grid;
+  gap: 16px;
+}
+
+.auth-field {
+  display: grid;
+  gap: 7px;
+}
+
+.auth-field > span {
+  color: #c3cee0;
+  font-size: 10px;
+  font-weight: 650;
+}
+
+.auth-field input {
+  width: 100%;
+  height: 43px;
+  padding: 0 12px;
+  border: 1px solid #344258;
+  border-radius: 7px;
+  outline: none;
+  background: #1b2739;
+  color: #e8edf8;
+  font: inherit;
+  font-size: 11px;
+  color-scheme: dark;
+}
+
+.auth-field input::placeholder {
+  color: #7889a1;
+}
+
+.auth-field input:focus {
+  border-color: #4a7fff;
+  box-shadow: 0 0 0 3px rgb(74 127 255 / 16%);
+}
+
+.auth-submit {
+  display: flex;
+  min-height: 43px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 4px;
+  border: 0;
+  border-radius: 7px;
+  background: #2f67ec;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 720;
+}
+
+.auth-submit:hover:not(:disabled) {
+  background: #3e78ff;
+}
+
+.auth-submit:disabled {
+  cursor: not-allowed;
+  opacity: .6;
+}
+
+.auth-switch {
+  margin: 22px 0 0;
+  color: #9aa8be;
+  font-size: 10px;
+  text-align: center;
+}
+
+.auth-switch button {
+  padding: 0;
+  border: 0;
+  background: transparent;
+  color: #79aaff;
+  font: inherit;
+  font-weight: 700;
+}
+
+.auth-switch button:hover {
+  color: #a7c7ff;
+  text-decoration: underline;
+}
+
+.auth-notice {
+  margin: 14px 0 0;
+  padding: 10px 12px;
+  border: 1px solid #614d26;
+  border-radius: 7px;
+  background: #292518;
+  color: #ffd27b;
+  font-size: 10px;
+  line-height: 1.55;
+}
+
+.auth-demo-note {
+  margin: 18px 0 0;
+  color: #74839b;
+  font-size: 9px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.medical-expenses-page {
+  min-height: calc(100vh - 39px);
+  padding: 55px 32px 32px;
+  background: #070d1c;
+}
+
+.medical-expenses-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 23px;
+  padding: 0 1px;
+}
+
+.medical-expenses-heading h2 {
+  margin: 0;
+  color: #f0f3fb;
+  font-size: 18px;
+  font-weight: 750;
+  letter-spacing: -.3px;
+}
+
+.add-medical-expense-button {
+  min-height: 29px;
+  font-size: 10px;
+}
+
+.medical-expense-table {
+  min-width: 930px;
+}
+
+.insurance-covered {
+  color: #19d49b !important;
+  font-weight: 750;
+}
+
+.medical-status {
+  display: inline-flex;
+  min-height: 25px;
+  align-items: center;
+  padding: 0 11px;
+  border: 1px solid transparent;
+  border-radius: 20px;
+  font-size: 10px;
+}
+
+.medical-status.paid {
+  border-color: #075c4b;
+  background: #102b2d;
+  color: #18d89a;
+}
+
+.medical-status.pending {
+  border-color: #593047;
+  background: #2a1b2b;
+  color: #ff527b;
+}
+
+.view-claim-button {
+  padding: 5px 0 5px 8px;
+  border: 0;
+  background: transparent;
+  color: #5798ff;
+  font-size: 11px;
+}
+
+.view-claim-button:hover {
+  color: #8ab8ff;
+  text-decoration: underline;
+}
+
+.medical-claim-dialog {
+  padding-bottom: 4px;
+}
+
+.medical-claim-details {
+  display: grid;
+  gap: 14px;
+  margin: 0;
+  padding: 20px;
+}
+
+.medical-claim-details > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.medical-claim-details dt {
+  color: #9aa8be;
+  font-size: 11px;
+}
+
+.medical-claim-details dd {
+  margin: 0;
+  color: #e8edf8;
+  font-size: 11px;
+  text-align: right;
+}
+
+@media (max-width: 1000px) {
+  .auth-page {
+    padding: 32px;
+  }
+
+  .auth-layout {
+    grid-template-columns: minmax(0, 1fr) minmax(330px, 390px);
+    gap: 38px;
+  }
+
+  .auth-intro {
+    min-height: 500px;
+  }
+
+  .auth-card {
+    padding: 28px;
+  }
+
+  .medical-expenses-page {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+}
+
+@media (max-width: 760px) {
+  .auth-page {
+    min-height: 100vh;
+    padding: 22px 16px;
+  }
+
+  .auth-layout {
+    width: min(440px, 100%);
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .auth-intro {
+    min-height: auto;
+    padding: 0;
+  }
+
+  .auth-pitch {
+    padding: 28px 0 0;
+  }
+
+  .auth-pitch h1 {
+    max-width: 400px;
+    margin: 12px 0 8px;
+    font-size: 31px;
+    letter-spacing: -1px;
+  }
+
+  .auth-pitch > p {
+    font-size: 12px;
+  }
+
+  .auth-feature-list {
+    display: none;
+  }
+
+  .auth-footer-note {
+    display: none;
+  }
+
+  .auth-card {
+    padding: 24px;
+  }
+
+  .medical-expenses-page {
+    padding: 20px 10px;
+  }
+
+  .medical-expenses-heading {
+    align-items: flex-start;
+  }
+
+  .medical-expenses-heading h2 {
+    max-width: 190px;
+    font-size: 15px;
+    line-height: 1.4;
+  }
+
+  .add-medical-expense-button {
+    padding: 0 8px;
+    font-size: 9px;
+  }
+}
+
+  .credit-cards-page {
+    min-height: calc(100vh - 39px);
+    padding: 55px 32px 32px;
+    background: #070d1c;
+  }
+
+  .credit-cards-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 0 23px;
+    padding: 0 1px;
+  }
+
+  .credit-cards-heading h2 {
+    margin: 0;
+    color: #f0f3fb;
+    font-size: 18px;
+    font-weight: 750;
+    letter-spacing: -.3px;
+  }
+
+  .add-credit-card-button {
+    min-height: 29px;
+    font-size: 10px;
+  }
+
+  .credit-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 333px));
+    align-items: start;
+    gap: 20px;
+  }
+
+  .credit-card-item {
+    min-width: 0;
+    min-height: 230px;
+    padding: 20px;
+    border: 1px solid #23304a;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #10192b, #0d1627);
+  }
+
+  .credit-card-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 22px;
+  }
+
+  .credit-card-title h3 {
+    overflow: hidden;
+    margin: 0;
+    color: #f0f3fb;
+    font-size: 14px;
+    font-weight: 750;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .credit-card-title span {
+    color: #7a7aff;
+    font-size: 19px;
+  }
+
+  .credit-card-balance {
+    display: grid;
+    gap: 5px;
+    margin-bottom: 14px;
+  }
+
+  .credit-card-balance > span,
+  .credit-card-utilization-label {
+    color: #9fb0c9;
+    font-size: 9px;
+    text-transform: uppercase;
+  }
+
+  .credit-card-balance strong {
+    color: #f4f6fd;
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -.5px;
+  }
+
+  .credit-card-detail {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 9px;
+    color: #9fb0c9;
+    font-size: 10px;
+  }
+
+  .credit-card-detail strong {
+    color: #f0f3fb;
+    font-size: 10px;
+  }
+
+  .credit-card-detail .credit-card-due-date {
+    color: #ffb526;
+  }
+
+  .credit-card-utilization {
+    margin-top: 18px;
+  }
+
+  .credit-card-utilization-label {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 7px;
+    font-size: 8px;
+    text-transform: none;
+  }
+
+  .credit-card-utilization-track {
+    height: 6px;
+    overflow: hidden;
+    border-radius: 20px;
+    background: #253145;
+  }
+
+  .credit-card-utilization-track span {
+    display: block;
+    height: 100%;
+    border-radius: inherit;
+    background: #7060f5;
+  }
+
+  .empty-credit-cards {
+    grid-column: 1 / -1;
+    margin: 28px 0;
+    color: #9aa8be;
+    text-align: center;
+  }
+
+  @media (max-width: 1000px) {
+    .credit-cards-page {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .credit-cards-page {
+      padding: 20px 10px;
+    }
+
+    .credit-cards-heading {
+      align-items: flex-start;
+    }
+
+    .credit-cards-heading h2 {
+      max-width: 190px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .add-credit-card-button {
+      padding: 0 8px;
+      font-size: 9px;
+    }
+
+    .credit-card-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+  }
+
+  .debit-transactions-page {
+    min-height: calc(100vh - 39px);
+    padding: 55px 32px 32px;
+    background: #070d1c;
+  }
+
+  .debit-transactions-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 0 23px;
+    padding: 0 1px;
+  }
+
+  .debit-transactions-heading h2 {
+    margin: 0;
+    color: #f0f3fb;
+    font-size: 18px;
+    font-weight: 750;
+    letter-spacing: -.3px;
+  }
+
+  .add-debit-transaction-button {
+    min-height: 29px;
+    font-size: 10px;
+  }
+
+  .debit-transactions-table {
+    min-width: 720px;
+  }
+
+  .debit-transactions-table tbody td:first-child {
+    color: #a7c3e9;
+  }
+
+  .debit-transactions-table tbody th {
+    color: #e8edf8;
+  }
+
+  .debit-transactions-table tbody .debit-transaction-amount {
+    color: #ff526d;
+    font-weight: 750;
+  }
+
+  .debit-transaction-category {
+    display: inline-flex;
+    min-height: 21px;
+    align-items: center;
+    padding: 0 8px;
+    border: 1px solid #344258;
+    border-radius: 4px;
+    background: #1e293b;
+    color: #e0e8f5;
+    font-size: 9px;
+  }
+
+  @media (max-width: 1000px) {
+    .debit-transactions-page {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .debit-transactions-page {
+      padding: 20px 10px;
+    }
+
+    .debit-transactions-heading {
+      align-items: flex-start;
+    }
+
+    .debit-transactions-heading h2 {
+      max-width: 190px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .add-debit-transaction-button {
+      padding: 0 8px;
+      font-size: 9px;
+    }
+  }
+
+  .bank-loans-page {
+    min-height: calc(100vh - 39px);
+    padding: 55px 32px 32px;
+    background: #070d1c;
+  }
+
+  .bank-loans-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 0 23px;
+    padding: 0 1px;
+  }
+
+  .bank-loans-heading h2 {
+    margin: 0;
+    color: #f0f3fb;
+    font-size: 18px;
+    font-weight: 750;
+    letter-spacing: -.3px;
+  }
+
+  .add-bank-loan-button {
+    min-height: 29px;
+    font-size: 10px;
+  }
+
+  .bank-loan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 430px), 1fr));
+    align-items: start;
+    gap: 24px;
+  }
+
+  .bank-loan-card {
+    min-width: 0;
+    min-height: 213px;
+    padding: 22px 20px 17px;
+    border: 1px solid #23304a;
+    border-radius: 12px;
+    background: #10192b;
+  }
+
+  .bank-loan-card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .bank-loan-type {
+    padding: 4px 9px;
+    border: 1px solid #3c3990;
+    border-radius: 4px;
+    background: #171d3a;
+    color: #8884ff;
+    font-size: 10px;
+  }
+
+  .bank-loan-interest {
+    color: #9fb0c9;
+    font-size: 10px;
+  }
+
+  .bank-loan-interest strong {
+    color: #18d89a;
+  }
+
+  .bank-loan-card h3 {
+    overflow: hidden;
+    margin: 12px 0 18px;
+    color: #f0f3fb;
+    font-size: 14px;
+    font-weight: 750;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .bank-loan-balance-row {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    padding: 15px 12px;
+    border-radius: 8px;
+    background: #172236;
+  }
+
+  .bank-loan-balance-row > div {
+    display: grid;
+    gap: 6px;
+  }
+
+  .bank-loan-balance-row span {
+    color: #9fb0c9;
+    font-size: 9px;
+    text-transform: uppercase;
+  }
+
+  .bank-loan-balance-row strong {
+    color: #f4f6fd;
+    font-size: 17px;
+    font-weight: 780;
+  }
+
+  .bank-loan-balance-row .principal-remaining {
+    color: #ff526d;
+  }
+
+  .bank-loan-term {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+    margin: 15px 0 0;
+    color: #a7c3e9;
+    font-size: 10px;
+  }
+
+  .bank-loan-term span {
+    color: #91a0b7;
+  }
+
+  .empty-bank-loans {
+    grid-column: 1 / -1;
+    margin: 28px 0;
+    color: #9aa8be;
+    text-align: center;
+  }
+
+  .fintech-page {
+    min-height: calc(100vh - 39px);
+    padding: 55px 32px 32px;
+    background: #070d1c;
+  }
+
+  .fintech-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 0 23px;
+    padding: 0 1px;
+  }
+
+  .fintech-heading h2 {
+    margin: 0;
+    color: #f0f3fb;
+    font-size: 18px;
+    font-weight: 750;
+    letter-spacing: -.3px;
+  }
+
+  .add-app-loan-button {
+    min-height: 29px;
+    font-size: 10px;
+  }
+
+  .app-loan-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 333px));
+    gap: 18px;
+  }
+
+  .app-loan-card {
+    min-width: 0;
+    min-height: 150px;
+    padding: 20px;
+    border: 1px solid #23304a;
+    border-radius: 12px;
+    background: #10192b;
+  }
+
+  .app-loan-card-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 13px;
+  }
+
+  .app-loan-card-heading h3 {
+    overflow: hidden;
+    margin: 0;
+    color: #e8edf8;
+    font-size: 14px;
+    font-weight: 720;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .app-loan-icon {
+    color: #55a7ff;
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .app-loan-balance {
+    display: block;
+    margin-bottom: 10px;
+    color: #f5f7fc;
+    font-size: 19px;
+    font-weight: 780;
+    letter-spacing: -.25px;
+  }
+
+  .app-loan-details {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 6px 12px;
+    color: #9fb0c9;
+    font-size: 10px;
+  }
+
+  .app-loan-details strong {
+    color: #f1f5fb;
+    font-size: 10px;
+    font-weight: 600;
+    text-align: right;
+  }
+
+  .app-loan-details .app-loan-due-date {
+    color: #ffb526;
+  }
+
+  .empty-app-loans {
+    grid-column: 1 / -1;
+    margin: 28px 0;
+    color: #9aa8be;
+    text-align: center;
+  }
+
+  .borrowings-page {
+    min-height: calc(100vh - 39px);
+    padding: 55px 32px 32px;
+    background: #070d1c;
+  }
+
+  .borrowings-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 0 23px;
+    padding: 0 1px;
+  }
+
+  .borrowings-heading h2 {
+    margin: 0;
+    color: #f0f3fb;
+    font-size: 18px;
+    font-weight: 750;
+    letter-spacing: -.3px;
+  }
+
+  .record-borrowing-button {
+    min-height: 29px;
+    font-size: 10px;
+  }
+
+  .borrowings-table-wrap {
+    overflow-x: auto;
+    border: 1px solid #26334b;
+    border-radius: 12px;
+    background: #10192b;
+  }
+
+  .borrowings-table {
+    width: 100%;
+    min-width: 800px;
+    border-collapse: collapse;
+    color: #dce5f4;
+    font-size: 12px;
+    text-align: left;
+  }
+
+  .borrowings-table thead {
+    background: #192437;
+  }
+
+  .borrowings-table thead th {
+    height: 48px;
+    padding: 0 16px;
+    color: #9fb0c9;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .borrowings-table tbody th,
+  .borrowings-table tbody td {
+    height: 57px;
+    padding: 0 16px;
+    border-top: 1px solid #202d43;
+    white-space: nowrap;
+  }
+
+  .borrowings-table tbody th {
+    color: #e8edf8;
+    font-weight: 650;
+  }
+
+  .borrowings-table tbody td {
+    color: #a7c3e9;
+  }
+
+  .borrowings-table tbody .borrowing-remaining {
+    color: #ff526d;
+    font-weight: 750;
+  }
+
+  .borrowing-action-heading,
+  .borrowing-action-cell {
+    text-align: right;
+  }
+
+  .record-payback-button {
+    min-height: 26px;
+    padding: 0 10px;
+    border: 0;
+    border-radius: 5px;
+    background: #2f67ec;
+    color: #f7f9ff;
+    font-size: 10px;
+    font-weight: 650;
+  }
+
+  .record-payback-button:hover:not(:disabled) {
+    background: #3e78ff;
+  }
+
+  .record-payback-button:disabled {
+    cursor: not-allowed;
+    opacity: .55;
+  }
+
+  .borrowings-table tbody .empty-borrowings {
+    height: 80px;
+    color: #9aa8be;
+    text-align: center;
+  }
+
+  .payback-balance {
+    margin: 0;
+    color: #9fb0c9;
+    font-size: 11px;
+  }
+
+  .payback-balance strong {
+    color: #f0f3fb;
+  }
+
+  .other-income-page {
+    min-height: calc(100vh - 39px);
+    padding: 55px 32px 32px;
+    background: #070d1c;
+  }
+
+  .other-income-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    margin: 0 0 23px;
+    padding: 0 1px;
+  }
+
+  .other-income-heading h2 {
+    margin: 0;
+    color: #f0f3fb;
+    font-size: 18px;
+    font-weight: 750;
+    letter-spacing: -.3px;
+  }
+
+  .add-income-source-button {
+    min-height: 29px;
+    font-size: 10px;
+  }
+
+  .income-source-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 333px));
+    align-items: start;
+    gap: 18px;
+  }
+
+  .income-source-card {
+    min-width: 0;
+    min-height: 134px;
+    padding: 20px;
+    border: 1px solid #23304a;
+    border-radius: 12px;
+    background: #10192b;
+  }
+
+  .income-source-meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 12px;
+    color: #9fb0c9;
+    font-size: 10px;
+  }
+
+  .income-source-category {
+    overflow: hidden;
+    max-width: 70%;
+    padding: 4px 9px;
+    border-radius: 4px;
+    background: #10332f;
+    color: #20d6a0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .income-source-card h3 {
+    overflow: hidden;
+    margin: 0 0 12px;
+    color: #f0f3fb;
+    font-size: 14px;
+    font-weight: 720;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .income-source-amount {
+    color: #19d49b;
+    font-size: 22px;
+    font-weight: 800;
+    letter-spacing: -.4px;
+  }
+
+  .empty-income-sources {
+    grid-column: 1 / -1;
+    margin: 28px 0;
+    color: #9aa8be;
+    text-align: center;
+  }
+
+  .assistant-page {
+    min-height: calc(100vh - 39px);
+    padding: 55px 32px 12px;
+    background: #070d1c;
+  }
+
+  .assistant-chat {
+    display: flex;
+    width: 100%;
+    max-width: 1320px;
+    height: min(495px, calc(100vh - 145px));
+    min-height: 360px;
+    flex-direction: column;
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #26334b;
+    border-radius: 12px;
+    background: #10192b;
+  }
+
+  .assistant-header {
+    display: flex;
+    min-height: 72px;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid #26334b;
+  }
+
+  .assistant-avatar,
+  .assistant-message-icon {
+    display: grid;
+    width: 40px;
+    height: 40px;
+    flex: 0 0 40px;
+    place-items: center;
+    border: 1px solid #3c3990;
+    border-radius: 12px;
+    background: #171d3a;
+    color: #8884ff;
+    font-size: 19px;
+  }
+
+  .assistant-heading-copy {
+    min-width: 0;
+    flex: 1;
+  }
+
+  .assistant-heading-copy h2 {
+    margin: 0 0 4px;
+    color: #f0f3fb;
+    font-size: 14px;
+    font-weight: 750;
+  }
+
+  .assistant-heading-copy p {
+    margin: 0;
+    color: #9fb0c9;
+    font-size: 10px;
+  }
+
+  .clear-chat-button {
+    min-height: 29px;
+    padding: 0 12px;
+    border: 0;
+    border-radius: 5px;
+    background: #1b2639;
+    color: #dce5f4;
+    font-size: 10px;
+  }
+
+  .clear-chat-button:hover:not(:disabled) {
+    background: #26344b;
+  }
+
+  .clear-chat-button:disabled {
+    cursor: default;
+    opacity: .7;
+  }
+
+  .assistant-conversation {
+    display: flex;
+    min-height: 0;
+    flex: 1;
+    flex-direction: column;
+    gap: 14px;
+    overflow-y: auto;
+    padding: 16px;
+  }
+
+  .assistant-message-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .assistant-message-icon {
+    width: 32px;
+    height: 32px;
+    flex-basis: 32px;
+    border: 0;
+    border-radius: 9px;
+    font-size: 15px;
+  }
+
+  .assistant-message {
+    max-width: min(75%, 680px);
+    padding: 15px 16px;
+    border: 1px solid #2b3a51;
+    border-radius: 0 16px 16px 16px;
+    background: #1b2739;
+    color: #e5ecf7;
+    font-size: 12px;
+    line-height: 1.55;
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
+
+  .assistant-welcome p {
+    margin: 0 0 8px;
+    color: #f0f3fb;
+  }
+
+  .assistant-welcome > span {
+    color: #a7c3e9;
+    font-size: 11px;
+  }
+
+  .assistant-welcome ul {
+    margin: 4px 0 8px;
+    padding-left: 18px;
+  }
+
+  .assistant-welcome small {
+    color: #8797ae;
+    font-size: 9px;
+  }
+
+  .user-message-row {
+    justify-content: flex-end;
+  }
+
+  .assistant-message.user-message {
+    border-color: #344b94;
+    border-radius: 16px 0 16px 16px;
+    background: #202c53;
+    color: #f2f5ff;
+  }
+
+  .assistant-composer {
+    display: flex;
+    align-items: flex-end;
+    gap: 8px;
+    padding: 14px 16px 16px;
+    border-top: 1px solid #26334b;
+  }
+
+  .assistant-composer textarea {
+    min-width: 0;
+    min-height: 42px;
+    max-height: 120px;
+    flex: 1;
+    resize: vertical;
+    padding: 11px 14px;
+    border: 1px solid #344258;
+    border-radius: 8px;
+    outline: none;
+    background: #1b2739;
+    color: #e8edf8;
+    font: inherit;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .assistant-composer textarea::placeholder {
+    color: #9fb0c9;
+  }
+
+  .assistant-composer textarea:focus {
+    border-color: #4a70df;
+    box-shadow: 0 0 0 2px #2f67ec30;
+  }
+
+  .assistant-send-button {
+    display: inline-flex;
+    min-height: 40px;
+    align-items: center;
+    gap: 7px;
+    padding: 0 15px;
+    border: 0;
+    border-radius: 7px;
+    background: #5446ed;
+    color: #fff;
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .assistant-send-button:hover:not(:disabled) {
+    background: #6659ff;
+  }
+
+  .assistant-send-button:disabled {
+    cursor: not-allowed;
+    opacity: .55;
+  }
+
+  .visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    clip-path: inset(50%);
+  }
+
+  @media (max-width: 1000px) {
+    .bank-loans-page {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    .fintech-page {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    .borrowings-page {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    .other-income-page {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+
+    .assistant-page {
+      padding-right: 15px;
+      padding-left: 15px;
+    }
+  }
+
+  @media (max-width: 760px) {
+    .bank-loans-page {
+      padding: 20px 10px;
+    }
+
+    .bank-loans-heading {
+      align-items: flex-start;
+    }
+
+    .bank-loans-heading h2 {
+      max-width: 190px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .add-bank-loan-button {
+      padding: 0 8px;
+      font-size: 9px;
+    }
+
+    .bank-loan-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .fintech-page {
+      padding: 20px 10px;
+    }
+
+    .fintech-heading {
+      align-items: flex-start;
+    }
+
+    .fintech-heading h2 {
+      max-width: 190px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .add-app-loan-button {
+      padding: 0 8px;
+      font-size: 9px;
+    }
+
+    .app-loan-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .borrowings-page {
+      padding: 20px 10px;
+    }
+
+    .borrowings-heading {
+      align-items: flex-start;
+    }
+
+    .borrowings-heading h2 {
+      max-width: 190px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .record-borrowing-button {
+      padding: 0 8px;
+      font-size: 9px;
+    }
+
+    .other-income-page {
+      padding: 20px 10px;
+    }
+
+    .other-income-heading {
+      align-items: flex-start;
+    }
+
+    .other-income-heading h2 {
+      max-width: 190px;
+      font-size: 15px;
+      line-height: 1.4;
+    }
+
+    .add-income-source-button {
+      padding: 0 8px;
+      font-size: 9px;
+    }
+
+    .income-source-grid {
+      grid-template-columns: 1fr;
+      gap: 10px;
+    }
+
+    .assistant-page {
+      padding: 20px 10px 10px;
+    }
+
+    .assistant-chat {
+      height: calc(100vh - 100px);
+      min-height: 340px;
+    }
+
+    .assistant-header {
+      min-height: 62px;
+      gap: 9px;
+      padding: 10px;
+    }
+
+    .assistant-avatar {
+      width: 34px;
+      height: 34px;
+      flex-basis: 34px;
+    }
+
+    .assistant-heading-copy h2 {
+      font-size: 12px;
+    }
+
+    .assistant-heading-copy p {
+      max-width: 175px;
+      font-size: 8px;
+      line-height: 1.4;
+    }
+
+    .clear-chat-button {
+      padding: 0 8px;
+      font-size: 9px;
+    }
+
+    .assistant-conversation {
+      gap: 10px;
+      padding: 10px;
+    }
+
+    .assistant-message-row {
+      gap: 8px;
+    }
+
+    .assistant-message {
+      max-width: calc(100% - 40px);
+      padding: 12px;
+      font-size: 11px;
+    }
+
+    .assistant-composer {
+      gap: 6px;
+      padding: 10px;
+    }
+
+    .assistant-composer textarea {
+      min-height: 40px;
+      padding: 10px;
+      font-size: 10px;
+    }
+
+    .assistant-send-button {
+      gap: 5px;
+      padding: 0 10px;
+      font-size: 10px;
+    }
+  }

@@ -1,0 +1,69 @@
+@baseUrl = http://localhost:5005
+@userId = 11111111-1111-1111-1111-111111111111
+@reportId = 22222222-2222-2222-2222-222222222222
+@sourceId = 33333333-3333-3333-3333-333333333333
+
+### Get the latest credit score report
+GET {{baseUrl}}/api/creditscore/user/{{userId}}
+
+### List credit score reports
+GET {{baseUrl}}/api/creditscore/reports/user/{{userId}}
+
+### Get one credit score report
+GET {{baseUrl}}/api/creditscore/reports/{{reportId}}/user/{{userId}}
+
+### Create a credit score report
+POST {{baseUrl}}/api/creditscore/reports/user/{{userId}}
+Content-Type: application/json
+
+{
+  "bureauName": "CIBIL",
+  "creditScore": 785,
+  "reportDate": "2026-10-22",
+  "summaryNotes": "Excellent credit score."
+}
+
+### Update a credit score report
+PUT {{baseUrl}}/api/creditscore/reports/{{reportId}}/user/{{userId}}
+Content-Type: application/json
+
+{
+  "bureauName": "CIBIL",
+  "creditScore": 790,
+  "reportDate": "2026-10-28",
+  "summaryNotes": "Updated credit score."
+}
+
+### Delete a credit score report
+DELETE {{baseUrl}}/api/creditscore/reports/{{reportId}}/user/{{userId}}
+
+### List other financial sources
+GET {{baseUrl}}/api/creditscore/sources/user/{{userId}}
+
+### Get one financial source
+GET {{baseUrl}}/api/creditscore/sources/{{sourceId}}/user/{{userId}}
+
+### Create a financial source
+POST {{baseUrl}}/api/creditscore/sources/user/{{userId}}
+Content-Type: application/json
+
+{
+  "sourceName": "Freelance Design",
+  "category": "Income",
+  "amount": 1200.00,
+  "transactionDate": "2026-10-28"
+}
+
+### Update a financial source
+PUT {{baseUrl}}/api/creditscore/sources/{{sourceId}}/user/{{userId}}
+Content-Type: application/json
+
+{
+  "sourceName": "Freelance Design",
+  "category": "Income",
+  "amount": 1300.00,
+  "transactionDate": "2026-10-28"
+}
+
+### Delete a financial source
+DELETE {{baseUrl}}/api/creditscore/sources/{{sourceId}}/user/{{userId}}
