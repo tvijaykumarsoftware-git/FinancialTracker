@@ -223,19 +223,19 @@ interface CreditScoreFactor {
             <form class="auth-form" #signupFormElement="ngForm" (ngSubmit)="submitAuthForm()">
               <label class="auth-field">
                 <span>Full name</span>
-                <input type="text" name="signupName" [(ngModel)]="authName" placeholder="Your name" autocomplete="name" required>
+                <input type="text" name="signupName" [(ngModel)]="authName" placeholder="Your name" autocomplete="name" minlength="2" maxlength="201" required>
               </label>
               <label class="auth-field">
                 <span>Email address</span>
-                <input type="email" name="signupEmail" [(ngModel)]="authEmail" placeholder="you@example.com" autocomplete="email" required>
+                <input type="email" name="signupEmail" [(ngModel)]="authEmail" placeholder="you@example.com" autocomplete="email" maxlength="255" required>
               </label>
               <label class="auth-field">
                 <span>Password</span>
-                <input type="password" name="signupPassword" [(ngModel)]="authPassword" placeholder="6+ characters, upper/lowercase and a number" autocomplete="new-password" minlength="6" maxlength="12" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=\\S+$).{6,12}" required>
+                <input type="password" name="signupPassword" [(ngModel)]="authPassword" placeholder="12+ characters, upper/lowercase and a number" autocomplete="new-password" minlength="12" maxlength="128" pattern="(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=\\S+$).{12,128}" required>
               </label>
               <label class="auth-field">
                 <span>Confirm password</span>
-                <input type="password" name="signupConfirmPassword" [(ngModel)]="authConfirmPassword" placeholder="Re-enter your password" autocomplete="new-password" minlength="6" maxlength="12" required>
+                <input type="password" name="signupConfirmPassword" [(ngModel)]="authConfirmPassword" placeholder="Re-enter your password" autocomplete="new-password" minlength="12" maxlength="128" required>
               </label>
               <button class="auth-submit" type="submit" [disabled]="signupFormElement.invalid || authPassword !== authConfirmPassword || authSubmitting">{{ authSubmitting ? 'Creating Account…' : 'Create Account' }} <span aria-hidden="true">→</span></button>
             </form>
@@ -2236,8 +2236,26 @@ export class AppComponent {
       return 'Unable to reach the UserService. Start the API and check its database and signing-key configuration.';
     }
 
-    return error.error?.detail
-      ?? error.error?.title
+    const response = error.error as {
+      detail?: unknown;
+      errors?: unknown;
+      title?: unknown;
+    } | null;
+    if (response?.errors && typeof response.errors === 'object') {
+      for (const messages of Object.values(response.errors)) {
+        if (Array.isArray(messages)) {
+          const validationMessage = messages.find(
+            (message): message is string => typeof message === 'string'
+          );
+          if (validationMessage) {
+            return validationMessage;
+          }
+        }
+      }
+    }
+
+    return (typeof response?.detail === 'string' ? response.detail : undefined)
+      ?? (typeof response?.title === 'string' ? response.title : undefined)
       ?? 'Authentication failed. Please try again.';
   }
 
